@@ -1,5 +1,5 @@
 import math
-import CoolProp as CP
+# import CoolProp as CP
 from flet import *
 import flet as ft
 
@@ -69,7 +69,8 @@ class TabContentCoolProp(ft.UserControl):
             alignment=ft.MainAxisAlignment.CENTER,
             spacing=11
         )
-        self.result = CP.CoolProp.PropsSI("T", "P", 101325, "Q", 0, "Water")
+        # self.result = CP.CoolProp.PropsSI("T", "P", 101325, "Q", 0, "Water")
+        self.result = "coolprop result"
 
         return ft.Column(
             [
