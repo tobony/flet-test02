@@ -1,6 +1,6 @@
 import math
 # import CoolProp as CP
-import pyXSteam.XSteam as XSteam
+from pyXSteam.XSteam import XSteam
 from flet import *
 import flet as ft
 
@@ -96,7 +96,7 @@ class TabContentCoolProp(ft.UserControl):
                 ),
                 ft.Row(
                     [
-                        ft.Text(self.steamTable.hL_p(220.0))
+                        ft.Text(self.steamTable.hL_p(210.0))
                     ],
                     alignment=ft.MainAxisAlignment.CENTER,
                 ),
