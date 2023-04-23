@@ -1,4 +1,6 @@
 import flet as ft
+from utils.icon_utils import TabContentIcon
+from utils.coolprop_utils import TabContentCoolProp
 from utils.padding_utils import TabContentPadding
 from utils.alignment_utils import TabContentAlignment
 from utils.border_utils import TabContentBorder
@@ -9,7 +11,6 @@ from utils.gradient_utils import TabContentLinearGradient, TabContentSweepGradie
 from utils.shadermask_utils import TabContentShaderMask
 from utils.shape_utils import TabContentShape
 from utils.tooltip_utils import TabContentTooltip
-from utils.icon_utils import TabContentIcon
 from utils.progress_ring_utils import TabContentProgressRing
 from utils.progress_bar_utils import TabContentProgressBar
 from utils.divider_utils import TabContentDivider
@@ -120,7 +121,6 @@ def main(page: ft.Page):
         txt_number.value = str(int(txt_number.value) + 1)
         page.update()
 
-
     page.add(
         ft.Text("You have pushed the button this many times:"),
         ft.Row(
@@ -137,6 +137,7 @@ def main(page: ft.Page):
     
     ###########################################
     ## another example
+    icon_coolprop = TabContentCoolProp()
     icon_content = TabContentIcon()
     tooltip_content = TabContentTooltip()
     progress_ring_content = TabContentProgressRing()
@@ -164,6 +165,10 @@ def main(page: ft.Page):
             expand=True,
             selected_index=0,
             tabs=[
+                ft.Tab(
+                    text="CoolProp",
+                    content=icon_coolprop
+                ),
                 ft.Tab(
                     text="Icon",
                     content=icon_content
