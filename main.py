@@ -270,5 +270,5 @@ ft.app(
     target=main, 
     route_url_strategy="path",
     assets_dir="assets",
-    # view=ft.WEB_BROWSER,
+    view=ft.WEB_BROWSER,
     )
