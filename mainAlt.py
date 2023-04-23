@@ -20,27 +20,16 @@ from utils.blur_utils import TabContentBlur
 
 
 def main(page: ft.Page):
-    # the title of the app
-    page.title = "BRFLUID App"
-
-    # a light/bright theme
+    page.title = "Flet Utilities"
     page.theme_mode = "light"
-
-    # use material 2 design theme | this is just to better mimic the Flutter example
-    page.theme = ft.Theme(use_material3=False)
-
     # page.window_always_on_top = True
     page.vertical_alignment = "start"
 
-
-    # the page's alignment
-    # page.horizontal_alignment = "center"
-    # page.vertical_alignment = "center"
-    
     # set the width and height of the window.
     page.window_width = 640
     page.window_height = 750
 
+    # page.horizontal_alignment = "center"
 
     def change_theme(e):
         """
@@ -63,13 +52,13 @@ def main(page: ft.Page):
         style=ft.ButtonStyle(color={"": ft.colors.BLACK, "selected": ft.colors.WHITE}, ),
     )
 
-    # the app's appbar
     page.appbar = ft.AppBar(
         title=ft.Text(
-            "Flet Demo Home Page", 
-            color=ft.colors.WHITE),  # a title of white color
-        bgcolor=ft.colors.BLUE,  # a blue background color
-        center_title=True,  # center the title || without this, the title will be on the left
+            "Flet Utilities",
+            color="white"
+        ),
+        center_title=True,
+        bgcolor="blue",
         actions=[theme_icon_button],
         leading=ft.IconButton(
             icon=ft.icons.CODE,
@@ -80,60 +69,6 @@ def main(page: ft.Page):
         ),
     )
 
-
-
-    def increment_counter(e):
-        """Increment the value of the counter_text object by 1, and update the UI to reflect these changes."""
-        counter_text.value = str(int(counter_text.value) + 1)
-        page.update()
-
-
-    # text that contains the counter number to be incremented
-    counter_text = ft.Text("0", style=ft.TextThemeStyle.DISPLAY_MEDIUM)
-
-    # the app's FAB
-    page.floating_action_button = ft.FloatingActionButton(
-        content=ft.Icon(ft.icons.ADD, color=ft.colors.WHITE),
-        shape=ft.CircleBorder(),  # gives the button a round/circle shape
-        on_click=increment_counter,  # the callback to be executed when this button is clicked
-        tooltip="Increment",  # the text to be shown when this button is hovered
-        bgcolor=ft.colors.BLUE  # a blue background color
-    )
-
-    # adding our widgets/controls to the page/UI
-    page.add(
-        ft.Text("You have pushed the button this many times:"),
-        counter_text
-    )
-
-
-
-
-    ###### another example ######
-    txt_number = ft.TextField(value="0", text_align=ft.TextAlign.RIGHT, width=100)
-    
-    def minus_click(e):
-        txt_number.value = str(int(txt_number.value) - 1)
-        page.update()
-
-    def plus_click(e):
-        txt_number.value = str(int(txt_number.value) + 1)
-        page.update()
-
-
-    page.add(
-            ft.Row(
-                [
-                    ft.IconButton(ft.icons.REMOVE, on_click=minus_click),
-                    txt_number,
-                    ft.IconButton(ft.icons.ADD, on_click=plus_click),
-                ],
-                alignment=ft.MainAxisAlignment.CENTER,
-            )
-        )
-    
-    
-    ## another example
     icon_content = TabContentIcon()
     tooltip_content = TabContentTooltip()
     progress_ring_content = TabContentProgressRing()
@@ -256,10 +191,10 @@ def main(page: ft.Page):
         )
     )
 
-# open a browser tab containing the app | remove the view parameter to open in a native OS window
+
 ft.app(
-    target=main, 
+    target=main,
     route_url_strategy="path",
     assets_dir="assets",
     view=ft.WEB_BROWSER
-    )
+)
