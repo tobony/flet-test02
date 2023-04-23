@@ -1,5 +1,6 @@
 import math
 # import CoolProp as CP
+import pyXSteam.XSteam as XSteam
 from flet import *
 import flet as ft
 
@@ -71,6 +72,7 @@ class TabContentCoolProp(ft.UserControl):
         )
         # self.result = CP.CoolProp.PropsSI("T", "P", 101325, "Q", 0, "Water")
         self.result = "coolprop result"
+        self.steamTable = XSteam(XSteam.UNIT_SYSTEM_MKS) # m/kg/sec/°C/bar/W
 
         return ft.Column(
             [
@@ -89,6 +91,12 @@ class TabContentCoolProp(ft.UserControl):
                 ft.Row(
                     [
                         ft.Text(self.result)
+                    ],
+                    alignment=ft.MainAxisAlignment.CENTER,
+                ),
+                ft.Row(
+                    [
+                        ft.Text(self.steamTable.hL_p(220.0))
                     ],
                     alignment=ft.MainAxisAlignment.CENTER,
                 ),
