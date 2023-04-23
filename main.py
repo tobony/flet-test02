@@ -1,6 +1,6 @@
 import flet as ft
-from utils.icon_utils import TabContentIcon
 from utils.coolprop_utils import TabContentCoolProp
+from utils.icon_utils import TabContentIcon
 from utils.padding_utils import TabContentPadding
 from utils.alignment_utils import TabContentAlignment
 from utils.border_utils import TabContentBorder
@@ -137,7 +137,7 @@ def main(page: ft.Page):
     
     ###########################################
     ## another example
-    icon_coolprop = TabContentCoolProp()
+    # icon_coolprop = TabContentCoolProp()
     icon_content = TabContentIcon()
     tooltip_content = TabContentTooltip()
     progress_ring_content = TabContentProgressRing()
@@ -165,10 +165,10 @@ def main(page: ft.Page):
             expand=True,
             selected_index=0,
             tabs=[
-                ft.Tab(
-                    text="CoolProp",
-                    content=icon_coolprop
-                ),
+                # ft.Tab(
+                #     text="CoolProp",
+                #     content=icon_coolprop
+                # ),
                 ft.Tab(
                     text="Icon",
                     content=icon_content
