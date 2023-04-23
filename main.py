@@ -38,8 +38,8 @@ def main(page: ft.Page):
     # page.vertical_alignment = "center"
     
     # set the width and height of the window.
-    page.window_width = 640
-    page.window_height = 750
+    page.window_width = 800
+    page.window_height = 900
 
 
     def change_theme(e):
@@ -66,51 +66,51 @@ def main(page: ft.Page):
     # the app's appbar
     page.appbar = ft.AppBar(
         title=ft.Text(
-            "Flet Demo Home Page", 
+            "BRFLUID Apps Page", 
             color=ft.colors.WHITE),  # a title of white color
-        bgcolor=ft.colors.BLUE,  # a blue background color
+        bgcolor=ft.colors.DEEP_PURPLE,  # a blue background color
         center_title=True,  # center the title || without this, the title will be on the left
         actions=[theme_icon_button],
         leading=ft.IconButton(
             icon=ft.icons.CODE,
-            icon_color=ft.colors.YELLOW_ACCENT,
+            icon_color=ft.colors.GREEN_500,
             on_click=lambda e: page.launch_url(
-                "https://github.com/ndonkoHenri/Flet-Samples/tree/master/Flet-Utils"),
+                "https://github.com/tobony/flet-test02/"),
             tooltip="View Code"
         ),
     )
 
 
 
-    def increment_counter(e):
-        """Increment the value of the counter_text object by 1, and update the UI to reflect these changes."""
-        counter_text.value = str(int(counter_text.value) + 1)
-        page.update()
+    # def increment_counter(e):
+    #     """Increment the value of the counter_text object by 1, and update the UI to reflect these changes."""
+    #     counter_text.value = str(int(counter_text.value) + 1)
+    #     page.update()
 
 
-    # text that contains the counter number to be incremented
-    counter_text = ft.Text("0", style=ft.TextThemeStyle.DISPLAY_MEDIUM)
+    # # text that contains the counter number to be incremented
+    # counter_text = ft.Text("0", style=ft.TextThemeStyle.DISPLAY_MEDIUM)
 
-    # the app's FAB
-    page.floating_action_button = ft.FloatingActionButton(
-        content=ft.Icon(ft.icons.ADD, color=ft.colors.WHITE),
-        shape=ft.CircleBorder(),  # gives the button a round/circle shape
-        on_click=increment_counter,  # the callback to be executed when this button is clicked
-        tooltip="Increment",  # the text to be shown when this button is hovered
-        bgcolor=ft.colors.BLUE  # a blue background color
-    )
+    # # the app's FAB
+    # page.floating_action_button = ft.FloatingActionButton(
+    #     content=ft.Icon(ft.icons.ADD, color=ft.colors.WHITE),
+    #     shape=ft.CircleBorder(),  # gives the button a round/circle shape
+    #     on_click=increment_counter,  # the callback to be executed when this button is clicked
+    #     tooltip="Increment",  # the text to be shown when this button is hovered
+    #     bgcolor=ft.colors.BLUE  # a blue background color
+    # )
 
     # adding our widgets/controls to the page/UI
-    page.add(
-        ft.Text("You have pushed the button this many times:"),
-        counter_text
-    )
+    # page.add(
+    #     ft.Text("You have pushed the button this many times:"),
+    #     counter_text
+    # )
 
 
 
 
     ###### another example ######
-    txt_number = ft.TextField(value="0", text_align=ft.TextAlign.RIGHT, width=100)
+    txt_number = ft.TextField(value="0", text_align=ft.TextAlign.RIGHT, width=80)
     
     def minus_click(e):
         txt_number.value = str(int(txt_number.value) - 1)
@@ -122,39 +122,42 @@ def main(page: ft.Page):
 
 
     page.add(
-            ft.Row(
-                [
-                    ft.IconButton(ft.icons.REMOVE, on_click=minus_click),
-                    txt_number,
-                    ft.IconButton(ft.icons.ADD, on_click=plus_click),
-                ],
-                alignment=ft.MainAxisAlignment.CENTER,
+        ft.Text("You have pushed the button this many times:"),
+        ft.Row(
+            [
+                ft.IconButton(ft.icons.REMOVE, on_click=minus_click),
+                txt_number,
+                ft.IconButton(ft.icons.ADD, on_click=plus_click),
+            ],
+            alignment=ft.MainAxisAlignment.CENTER,
             )
         )
     
     
+    
+    ###########################################
     ## another example
     icon_content = TabContentIcon()
     tooltip_content = TabContentTooltip()
     progress_ring_content = TabContentProgressRing()
-    progress_bar_content = TabContentProgressBar()
-    divider_content = TabContentDivider()
-    vertical_divider_content = TabContentVerticalDivider()
-    circle_avatar_content = TabContentCircleAvatar()
+    # progress_bar_content = TabContentProgressBar()
+    # divider_content = TabContentDivider()
+    # vertical_divider_content = TabContentVerticalDivider()
+    # circle_avatar_content = TabContentCircleAvatar()
     border_radius_content = TabContentBorderRadius()
-    padding_content = TabContentPadding()
+    # padding_content = TabContentPadding()
     icons_browser_content = TabContentIconsBrowser()
-    colors1_content = TabContentColors1()
+    # colors1_content = TabContentColors1()
     colors2_content = TabContentColors2(page)
-    alignment_content = TabContentAlignment()
-    shape_content = TabContentShape()
-    shadow_content = TabContentShadow()
-    blur_content = TabContentBlur()
-    border_content = TabContentBorder()
-    linear_gradient_content = TabContentLinearGradient()
-    radial_gradient_content = TabContentRadialGradient()
-    sweep_gradient_content = TabContentSweepGradient()
-    shader_mask_content = TabContentShaderMask()
+    # alignment_content = TabContentAlignment()
+    # shape_content = TabContentShape()
+    # shadow_content = TabContentShadow()
+    # blur_content = TabContentBlur()
+    # border_content = TabContentBorder()
+    # linear_gradient_content = TabContentLinearGradient()
+    # radial_gradient_content = TabContentRadialGradient()
+    # sweep_gradient_content = TabContentSweepGradient()
+    # shader_mask_content = TabContentShaderMask()
 
     page.add(
         ft.Tabs(
@@ -173,83 +176,84 @@ def main(page: ft.Page):
                     text="ProgressRing",
                     content=progress_ring_content
                 ),
-                ft.Tab(
-                    text="ProgressBar",
-                    content=progress_bar_content
-                ),
-                ft.Tab(
-                    text="Divider",
-                    content=divider_content
-                ),
-                ft.Tab(
-                    text="VerticalDivider",
-                    content=vertical_divider_content
-                ),
-                ft.Tab(
-                    text="CircleAvatar",
-                    content=circle_avatar_content
-                ),
-                ft.Tab(
-                    text="Shadow",
-                    content=shadow_content
-                ),
-                ft.Tab(
-                    text="Blur",
-                    content=blur_content
-                ),
+                # ft.Tab(
+                #     text="ProgressBar",
+                #     content=progress_bar_content
+                # ),
+                # ft.Tab(
+                #     text="Divider",
+                #     content=divider_content
+                # ),
+                # ft.Tab(
+                #     text="VerticalDivider",
+                #     content=vertical_divider_content
+                # ),
+                # ft.Tab(
+                #     text="CircleAvatar",
+                #     content=circle_avatar_content
+                # ),
+                # ft.Tab(
+                #     text="Shadow",
+                #     content=shadow_content
+                # ),
+                # ft.Tab(
+                #     text="Blur",
+                #     content=blur_content
+                # ),
                 ft.Tab(
                     text="BorderRadius",
                     content=border_radius_content
                 ),
-                ft.Tab(
-                    text="Padding",
-                    content=padding_content
-                ),
+                # ft.Tab(
+                #     text="Padding",
+                #     content=padding_content
+                # ),
                 ft.Tab(
                     text="Icons Browser",
                     content=icons_browser_content
                 ),
-                ft.Tab(
-                    text="Colors V1",
-                    content=colors1_content
-                ),
+                # ft.Tab(
+                #     text="Colors V1",
+                #     content=colors1_content
+                # ),
                 ft.Tab(
                     text="Colors V2",
                     content=colors2_content
                 ),
-                ft.Tab(
-                    text="Alignment",
-                    content=alignment_content
-                ),
-                ft.Tab(
-                    text="Shape",
-                    content=shape_content
-                ),
-                ft.Tab(
-                    text="Border",
-                    content=border_content
-                ),
-                ft.Tab(
-                    text="Linear Gradient",
-                    content=linear_gradient_content
-                ),
-                ft.Tab(
-                    text="Radial Gradient",
-                    content=radial_gradient_content
-                ),
-                ft.Tab(
-                    text="Sweep Gradient",
-                    content=sweep_gradient_content
-                ),
-                ft.Tab(
-                    text="Shader Mask",
-                    content=shader_mask_content
-                ),
+                # ft.Tab(
+                #     text="Alignment",
+                #     content=alignment_content
+                # ),
+                # ft.Tab(
+                #     text="Shape",
+                #     content=shape_content
+                # ),
+                # ft.Tab(
+                #     text="Border",
+                #     content=border_content
+                # ),
+                # ft.Tab(
+                #     text="Linear Gradient",
+                #     content=linear_gradient_content
+                # ),
+                # ft.Tab(
+                #     text="Radial Gradient",
+                #     content=radial_gradient_content
+                # ),
+                # ft.Tab(
+                #     text="Sweep Gradient",
+                #     content=sweep_gradient_content
+                # ),
+                # ft.Tab(
+                #     text="Shader Mask",
+                #     content=shader_mask_content
+                # ),
             ]
         ),
         ft.Text(
-            "Made with ❤ by @ndonkoHenri aka TheEthicalBoy!",
-            style=ft.TextThemeStyle.LABEL_SMALL,
+            "BRFLUID, original example from @ndonkoHenri",
+            # style=ft.TextThemeStyle.LABEL_SMALL,
+            style=ft.TextThemeStyle.BODY_SMALL,
             weight=ft.FontWeight.BOLD,
             italic=True,
             color=ft.colors.BLUE_900,
@@ -261,5 +265,5 @@ ft.app(
     target=main, 
     route_url_strategy="path",
     assets_dir="assets",
-    view=ft.WEB_BROWSER
+    # view=ft.WEB_BROWSER,
     )
